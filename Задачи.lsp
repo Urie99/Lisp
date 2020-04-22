@@ -147,7 +147,21 @@
 ;----------------------------------------------------------------
 ;Задача 47
 ;Определите функцию УДАЛИТЬ-ВСЕ-СВОЙСТВА, которая удаляет все свойства символа.
+(defun del-prop(x)
+	((lambda(prop-list)
+		(cond ((NULL prop-list) t)
+			(t (remprop x (car prop-list))(del-prop x)) 	
+		)
+	)(symbol-plist x))	 
+) 
+(setq x 'Desktop) 
+(setf (get 'Desktop 'brand) 'Toshiba) 
+(setf (get 'Desktop 'color) 'grey) 
+(setf (get 'Desktop 'year) '2013)
 
+(print (symbol-plist 'Desktop))
+(del-prop 'Desktop) 
+(print (symbol-plist 'Desktop))
 ;-------------------Задачи зачтены-------------------------------
 ;Задача 15
 ;Определите функцию, вычисляющую скалярное произведение векторов, заданных списками целых чисел.
