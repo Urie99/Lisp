@@ -79,7 +79,15 @@
 
 ;Задача 21
 ;Определите функцию, удаляющую из списка первое вхождение данного элемента на верхнем уровне.
-
+(defun remove-el(lst del)
+    (if (NULL lst) NIL
+       ((lambda (h tail)
+        (if (equal h del) tail
+            (cons h (remove-el tail del)))
+        ) (car lst) (cdr lst)))
+)
+(print (remove-el '(1 2 (3 3) 3) 3))
+(print (remove-el '(2 3 (4 5) 7) 8))
 ;----------------------------------------------------------------
 
 ;Задача 27
