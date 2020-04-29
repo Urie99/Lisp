@@ -161,18 +161,18 @@
 ;----------------------------------------------------------------
 ;Задача 47
 ;Определите функцию УДАЛИТЬ-ВСЕ-СВОЙСТВА, которая удаляет все свойства символа.
-(defun del-prop(x)
+defun del-prop(x)
 	((lambda(prop-list)
 		(cond ((NULL prop-list) t)
 			(t (remprop x (car prop-list))(del-prop x)) 	
 		)
 	)(symbol-plist x))	 
 ) 
-(setq x 'Desktop) 
-(setf (get 'Desktop 'brand) 'Toshiba) 
-(setf (get 'Desktop 'color) 'grey) 
-(setf (get 'Desktop 'year) '2013)
+(setq x 'Student) 
+(setf (get 'Student 'Name) 'Urie) 
+(setf (get 'Student 'Group) '402-I) 
+(setf (get 'Student 'Faculty) '(Faculty of Mathematics and Computer Science))
 
-(print (symbol-plist 'Desktop))
-(del-prop 'Desktop) 
-(print (symbol-plist 'Desktop))
+(print (symbol-plist 'Student))
+(del-prop 'Student) 
+(print (symbol-plist 'Student))
