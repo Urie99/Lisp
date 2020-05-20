@@ -4,8 +4,8 @@
 (defmacro call (&rest self)
    `'(call  ,self))
 
-(print (call 'a 'b)) 
-(print (call + 2 3)) 
+(print call 'a 'b) 
+(print call + 2 3) 
 ;-------------------------------------------------------------------------------------
 
 ;Задача 2
